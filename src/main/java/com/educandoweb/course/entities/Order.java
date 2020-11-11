@@ -97,6 +97,14 @@ public class Order {
 	public void setPayment(Payment payment) {
 		this.payment = payment;
 	}
+	
+	public Double getTotal() {
+		double sum = 0.0;
+		for (OrderItem orderItem : this.items) {
+			sum += orderItem.getSubtotal();
+		}
+		return sum;
+	}
 
 	@Override
 	public int hashCode() {
